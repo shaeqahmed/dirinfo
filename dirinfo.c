@@ -9,6 +9,7 @@
 int main() {
   printf("\n");
   DIR* dir = opendir(".");
+  if (errno) printf("Error #%d, %s\n", errno, strerror(errno));
   struct dirent* dirc; struct stat data;
   int size = 0;
   while (dirc = readdir(dir)) {
